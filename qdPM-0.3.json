@@ -1,0 +1,81 @@
+{
+	"jpsVersion": "0.2",
+	"jpsType": "install",
+	"application": {
+		"id": "qdpm",
+		"name": "qdPM",
+		"version": "8.3",
+		"categories": ["apps/project-management"],
+		"logo": "https://raw.githubusercontent.com/JelasticJPS/qdPM/master/images/qdpm.png",
+		"type": "php",
+		"homepage": "http://qdpm.net/",
+		"description": {
+			"text": "qdPM is a free web-based project management tool suitable for a small team working on multiple projects.\r\n\r\nIt is fully configurable. You can easy manage Projects, Tasks and People.\r\n\r\nCustomers interact using a Ticket System that is integrated into Task management."
+		},
+		"env": {
+			"topology": {
+				"ha": false,
+				"engine": "php5.3",
+				"ssl": false,
+				"nodes": [{
+						"extip": false,
+						"count": 1,
+						"cloudlets": 16,
+						"nodeType": "apache2"
+					}, {
+						"nodeType": "mysql5",
+						"extip": false,
+						"count": 1,
+						"cloudlets": 16
+					}
+				]
+			},
+			"deployments": [{
+					"archive": "https://raw.githubusercontent.com/JelasticJPS/qdPM/master/dumps/qdpm-8.3.zip",
+					"name": "qdpm-8.3.zip",
+					"context": "ROOT"
+				}
+			],
+			"configs": [{
+					"nodeType": "mysql5",
+					"database": {
+						"name": "qdpm",
+						"user": "qdpm",
+						"dump": "https://raw.githubusercontent.com/JelasticJPS/qdPM/master/dumps/qdpm.sql",
+						"patch": "UPDATE qdpm.configuration SET configuration.value='${user.email}' WHERE configuration.key='app_administrator_email';UPDATE qdpm.configuration SET configuration.value='${user.appPassword}' WHERE configuration.key='app_administrator_password';"
+					}
+				}, {
+					"nodeType": "apache2",
+					"path": "/etc/php.ini",
+					"replacements": [{
+							"pattern": "short_open_tag = Off",
+							"replacement": "short_open_tag = On"
+						}
+					]
+				}, {
+					"restart": true,
+					"nodeType": "apache2",
+					"path": "${SERVER_WEBROOT}/ROOT/core/config/databases.yml",
+					"replacements": [{
+							"pattern": "{DB_NAME}",
+							"replacement": "${nodes.mysql5.database.name}"
+						}, {
+							"pattern": "{DB_USER}",
+							"replacement": "${nodes.mysql5.database.user}"
+						}, {
+							"pattern": "{DB_PASSWORD}",
+							"replacement": "${nodes.mysql5.database.password}"
+						}, {
+							"pattern": "{DB_HOST}",
+							"replacement": "${nodes.mysql5.address}"
+						}
+					]
+				}
+			]
+		},
+		"success": {
+			"text": "Below you will find your admin panel link, username and password.</br></br> <table style='font-size:13px; border: none;'><tr><td>Admin panel URL:</td><td style='padding-left: 10px;'><a href='${env.protocol}://${env.domain}/' target='_blank'>${env.protocol}://${env.domain}/</a></td></tr>  <tr><td>Admin email:</td><td style='padding-left: 10px;'>${user.email}</td></tr><tr><td>Password:</td><td style='padding-left: 10px;'>${user.appPassword}</td></tr></table></br>To add custom domain name for your qdPM installation follow the steps described in our <a href='http://docs.jelastic.com/custom-domains' target='_blank'>documentation</a>",
+			"email": "Below you will find your admin panel link, username and password.</br></br> <table style='font-size:13px; border: none;'><tr><td>Admin panel URL:</td><td style='padding-left: 10px;'><a href='${env.protocol}://${env.domain}/' target='_blank'>${env.protocol}://${env.domain}/</a></td></tr>  <tr><td>Admin email:</td><td style='padding-left: 10px;'>${user.email}</td></tr><tr><td>Password:</td><td style='padding-left: 10px;'>${user.appPassword}</td></tr></table></br>To add custom domain name for your qdPM installation follow the steps described in our <a href='http://docs.jelastic.com/custom-domains' target='_blank'>documentation</a>"
+		}
+	}
+}

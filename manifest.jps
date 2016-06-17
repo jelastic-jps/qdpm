@@ -6,7 +6,7 @@
 		"name": "qdPM",
 		"version": "8.3",
 		"categories": ["apps/project-management"],
-		"logo": "https://raw.githubusercontent.com/jelastic-jps/qdPM/master/images/qdpm.png",
+		"logo": "https://raw.githubusercontent.com/jelastic-jps/qdpm/master/images/qdpm.png",
 		"type": "php",
 		"homepage": "http://qdpm.net/",
 		"description": {
@@ -31,7 +31,7 @@
 				]
 			},
 			"deployments": [{
-					"archive": "https://raw.githubusercontent.com/jelastic-jps/qdPM/master/dumps/qdpm-8.3.zip",
+					"archive": "https://raw.githubusercontent.com/jelastic-jps/qdpm/master/dumps/qdpm-8.3.zip",
 					"name": "qdpm-8.3.zip",
 					"context": "ROOT"
 				}
@@ -41,7 +41,7 @@
 					"database": {
 						"name": "qdpm",
 						"user": "qdpm",
-						"dump": "https://raw.githubusercontent.com/jelastic-jps/qdPM/master/dumps/qdpm.sql",
+						"dump": "https://raw.githubusercontent.com/jelastic-jps/qdpm/master/dumps/qdpm.sql",
 						"patch": "UPDATE qdpm.configuration SET configuration.value='${user.email}' WHERE configuration.key='app_administrator_email';UPDATE qdpm.configuration SET configuration.value='${user.appPassword}' WHERE configuration.key='app_administrator_password';"
 					}
 				}, {

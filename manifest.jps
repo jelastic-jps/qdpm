@@ -20,13 +20,13 @@
 				"nodes": [{
 						"extip": false,
 						"count": 1,
-						"cloudlets": 16,
+						"cloudlets": 8,
 						"nodeType": "apache2"
 					}, {
 						"nodeType": "mysql5",
 						"extip": false,
 						"count": 1,
-						"cloudlets": 16
+						"cloudlets": 8
 					}
 				]
 			},

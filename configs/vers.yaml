@@ -1,1 +1,2 @@
-
+globals:
+  version_moodle: "9.2"

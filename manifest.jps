@@ -50,7 +50,7 @@ onInstall:
     - pattern: short_open_tag = Off
       replacement: short_open_tag = On
 - cmd[cp]: |-
-    curl "127.0.0.1/install/index.php?step=qdpm_config&action=install_qdpm" -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d 'db_host=${nodes.sqldb.master.address}' -d 'db_port=3306' -d 'db_name=qdpm' -d 'db_username=qdpm' -d 'db_password=${globals.DB_PASS}' -d 'administrator_email=${user.email}' -d 'administrator_password=${globals.ADMIN_PASS}' -d 'app_name=Workspace' -d 'app_short_name=qDPM' -d 'email_label:qDPM'
+    curl "127.0.0.1/install/index.php?step=qdpm_config&action=install_qdpm" -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d 'db_host=${nodes.sqldb.master.address}' -d 'db_port=3306' -d 'db_name=qdpm' -d 'db_username=qdpm' --data-urlencode 'db_password=${globals.DB_PASS}' --data-urlencode 'administrator_email=${user.email}' --data-urlencode 'administrator_password=${globals.ADMIN_PASS}' -d 'app_name=Workspace' -d 'app_short_name=qDPM' -d 'email_label:qDPM'
 - restartNodes:
     nodeType: apache2
 

@@ -25,7 +25,7 @@ globals:
 nodes:
 - cloudlets: 8
   nodeType: apache2
-  engine: php8.0
+  engine: php8.2
 - nodeType: mysql8
   cloudlets: 8
 

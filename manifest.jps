@@ -7,7 +7,7 @@ categories:
 - apps/project-management
 
 logo: https://download.jelastic.com/public.php?service=files&t=7dfa008f13ede994bc8df9e01dd468f9&download
-baseUrl: https://raw.githubusercontent.com/sych74/qdpm/master/
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/qdpm/master/
 homepage: http://qdpm.net/
 
 description: |

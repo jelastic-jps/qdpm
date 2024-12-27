@@ -4,7 +4,7 @@
 
 # qdPM
 
-The package deploys the [qdPM](https://qdpm.net/) solution - a web-based project management tool with a user-friendly interface suitable for a small team working on multiple projects. qdPM offers a comprehensive suite of features including task management, time tracking, and reporting.
+The package deploys the [qdPM](https://qdpm.net/) solution - a web-based project management tool with a user-friendly interface suitable for a small team working on multiple projects. qdPM offers a comprehensive suite of features, including task management, time tracking, and reporting.
  
 
 ## Environment Topology

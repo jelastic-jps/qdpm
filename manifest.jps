@@ -58,4 +58,4 @@ success: |
   **Admin email:** ${user.email}  
   **Admin password:** ${globals.ADMIN_PASS} 
 
-  To add custom domain name for your qdPM installation follow the steps described in our [documentation](https://www.virtuozzo.com/application-platform-docs/custom-domains/).
+  To add a custom domain name for your qdPM installation, follow the steps described in our [documentation](https://www.virtuozzo.com/application-platform-docs/custom-domains/).

@@ -6,14 +6,14 @@ name: qdPM
 categories:
 - apps/project-management
 
-logo: https://download.jelastic.com/public.php?service=files&t=7dfa008f13ede994bc8df9e01dd468f9&download
+logo: images/qdpm.png
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/qdpm/master/
-homepage: http://qdpm.net/
+homepage: https://qdpm.net/
 
 description: |
-  qdPM is a free web-based project management tool suitable for a small team working on multiple projects.
-  It is fully configurable. You can easy manage Projects, Tasks and People.
-  Customers interact using a Ticket System that is integrated into Task management.
+  qdPM is a free web-based project management tool suitable for a small team working on multiple projects. It is fully configurable, you can easily manage projects, tasks, and people.
+  
+  Customers interact using a Ticket System that is integrated into the task management.
 
 mixins:
   - configs/vers.yaml
@@ -52,10 +52,10 @@ onInstall:
     nodeType: apache2
 
 success: |
-  Below you will find your admin panel link, username and password.  
+  Use the following credentials to access the qdPM admin panel:
   
-  Admin panel URL: [${env.protocol}://${env.domain}/](${env.protocol}://${env.domain}/)  
-  Admin email: ${user.email}  
-  Password: ${globals.ADMIN_PASS} 
-  
-  To add custom domain name for your qdPM installation follow the steps described in our [documentation](https://www.virtuozzo.com/application-platform-docs/custom-domains/)
+  **Admin panel URL:** [${env.protocol}://${env.domain}/](${env.protocol}://${env.domain}/)  
+  **Admin email:** ${user.email}  
+  **Admin password:** ${globals.ADMIN_PASS} 
+
+  To add a custom domain name for your qdPM installation, follow the steps described in our [documentation](https://www.virtuozzo.com/application-platform-docs/custom-domains/).

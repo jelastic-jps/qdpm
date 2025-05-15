@@ -22,6 +22,9 @@ globals:
   ADMIN_PASS: "${fn.password(10)}"
   DB_PASS: "${fn.password(10)}"
 
+ssl: true
+skipNodeEmails: true
+
 nodes:
 - cloudlets: 8
   nodeType: apache2

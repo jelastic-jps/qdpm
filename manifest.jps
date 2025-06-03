@@ -7,7 +7,7 @@ categories:
 - apps/project-management
 
 logo: images/qdpm.png
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/qdpm/master/
+baseUrl: https://cdn.jsdelivr.net/gh/jelastic-jps/qdpm@master/
 homepage: https://qdpm.net/
 
 description: |
